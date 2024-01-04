@@ -14,7 +14,7 @@ resource "aws_instance" "bastion-instance" {
   vpc_security_group_ids = [
     data.terraform_remote_state.security_group.outputs.security_group.bastion_id
   ]
-  iam_instance_profile = "flame-session-manager-role"
+  iam_instance_profile = "[INSTANCE_PROFILE_NAME]"
 
   tags = merge(local.default_tags, {
     Name = "${join("-", compact([local.name_prefix, "bastion", "instance"]))}"
